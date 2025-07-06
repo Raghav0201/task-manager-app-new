@@ -11,4 +11,8 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes); // ✅ added
 
+app.get('/api/test', (req, res) => {
+  res.send('✅ Backend running');
+});
+
 module.exports = app;
