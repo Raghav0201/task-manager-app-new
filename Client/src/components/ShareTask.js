@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+const API = process.env.REACT_APP_API_URL;
+
 const ShareTask = ({ taskId }) => {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('');
@@ -11,7 +13,7 @@ const ShareTask = ({ taskId }) => {
 
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/tasks/share',
+        `${API}/api/tasks/share`,
         { taskId, email },
         { headers: { Authorization: `Bearer ${token}` } }
       );

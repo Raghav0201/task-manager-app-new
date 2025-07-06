@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+const API = process.env.REACT_APP_API_URL;
+
 const SingleTaskView = () => {
   const { id } = useParams(); // Get task ID from URL
   const [task, setTask] = useState(null);
@@ -18,7 +20,7 @@ const SingleTaskView = () => {
 
     const fetchTask = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/tasks/${id}`, {
+        const res = await axios.get(`${API}/api/tasks/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setTask(res.data);

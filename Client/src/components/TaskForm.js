@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/TaskForm.css';
 
+const API = process.env.REACT_APP_API_URL;
+
 const TaskForm = ({ onTaskAdded }) => {
   const [showModal, setShowModal] = useState(false);
   const [title, setTitle] = useState('');
@@ -21,7 +23,7 @@ const TaskForm = ({ onTaskAdded }) => {
     try {
       const token = localStorage.getItem('token');
       const res = await axios.post(
-        'http://localhost:5000/api/tasks',
+        `${API}/api/tasks`,
         { title, todos, dueDate },
         { headers: { Authorization: `Bearer ${token}` } }
       );

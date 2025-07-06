@@ -4,6 +4,8 @@ import { MdModeEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import { FaShareAlt } from "react-icons/fa";
 
+const API = process.env.REACT_APP_API_URL;
+
 const TaskItem = ({ task, onDeleted, onToggled, onUpdated }) => {
   const token = localStorage.getItem("token");
   const [showEdit, setShowEdit] = useState(false);
@@ -14,7 +16,7 @@ const TaskItem = ({ task, onDeleted, onToggled, onUpdated }) => {
   const [dueDate, setDueDate] = useState(task.dueDate?.substring(0, 10) || '');
 
   const deleteTask = async () => {
-    await axios.delete(`http://localhost:5000/api/tasks/${task._id}`, {
+    await axios.delete(`${API}/api/tasks/${task._id}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     onDeleted(task._id);
@@ -23,7 +25,7 @@ const TaskItem = ({ task, onDeleted, onToggled, onUpdated }) => {
   const shareTask = async () => {
     try {
       const token = localStorage.getItem("token");
-      await axios.post("http://localhost:5000/api/tasks/share", {
+      await axios.post(`${API}/api/tasks/share`, {
         taskId: task._id,
         email: shareEmail,
       }, {
@@ -43,7 +45,7 @@ const TaskItem = ({ task, onDeleted, onToggled, onUpdated }) => {
     e.preventDefault();
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/tasks/${task._id}`,
+        `${API}/api/tasks/${task._id}`,
         { title, todos, dueDate },
         { headers: { Authorization: `Bearer ${token}` } }
       );

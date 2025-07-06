@@ -4,6 +4,8 @@ import TaskForm from '../components/TaskForm';
 import TaskList from '../components/TaskList';
 import { useNavigate } from 'react-router-dom';
 
+const API = process.env.REACT_APP_API_URL;
+
 const Dashboard = () => {
   const [tasks, setTasks] = useState([]);
   const [token, setToken] = useState('');
@@ -20,7 +22,7 @@ const Dashboard = () => {
 
     const fetchTasks = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/tasks', {
+        const res = await axios.get(`${API}/api/tasks`, {
           headers: { Authorization: `Bearer ${localToken}` }
         });
         setTasks(res.data);
@@ -39,7 +41,7 @@ const Dashboard = () => {
   const updateTask = async (updatedTask) => {
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/tasks/${updatedTask._id}`,
+        `${API}/api/tasks/${updatedTask._id}`,
         updatedTask,
         {
           headers: { Authorization: `Bearer ${token}` },
