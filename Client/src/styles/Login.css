@@ -1,0 +1,54 @@
+/* Login.css */
+.login-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f7fb;
+}
+
+.login-box {
+  background: white;
+  padding: 40px 50px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+.login-box h1 {
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.login-box p {
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.google-btn {
+  background-color: white;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.google-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.google-logo {
+  width: 20px;
+  height: 20px;
+}

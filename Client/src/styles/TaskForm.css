@@ -1,0 +1,102 @@
+/* TaskForm.css */
+
+.new-task-button {
+  background-color: #007aff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 20px auto;
+  display: block;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.new-task-button:hover {
+  background-color: #005fcc;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 14px;
+  padding: 30px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content h3,
+.modal-content h4 {
+  margin: 0 0 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="date"] {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  background: #fafafa;
+}
+
+.modal-content button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-content button[type="submit"] {
+  background-color: #007aff;
+  color: white;
+}
+
+.modal-content button[type="submit"]:hover {
+  background-color: #005fcc;
+}
+
+.modal-content button[type="button"] {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.modal-content button[type="button"]:hover {
+  background-color: #ccc;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
